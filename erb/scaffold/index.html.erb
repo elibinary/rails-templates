@@ -13,15 +13,15 @@
       </thead>
 
       <tbody>
-        <%% @<%= plural_table_name %>.each do |singular_table_name| %>
+        <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
         <tr>
           <% attributes_names.each do |attr_name| %>
             <td><%%= singular_table_name.try(attr_name) %></td>
           <% end %>
 
-          <td><%%= link_to '编辑', edit_admin_<%= singular_table_name %>_path(singular_table_name, page: params[:page], q: params[:q]) %></td>
+          <td><%%= link_to '编辑', edit_admin_<%= singular_table_name %>_path(<%= singular_table_name %>, page: params[:page], q: params[:q]) %></td>
           <td>
-              <%%= link_to '删除', admin_<%= singular_table_name %>_path(id: singular_table_name.id),  method: :delete, remote: true, data: { confirm: '确认删除吗？' }  %>
+              <%%= link_to '删除', admin_<%= singular_table_name %>_path(id: <%= singular_table_name %>.id),  method: :delete, remote: true, data: { confirm: '确认删除吗？' }  %>
           </td>
         </tr>
         <%% end %>
