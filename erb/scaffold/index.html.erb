@@ -6,7 +6,7 @@
     <table class="table">
       <thead>
         <tr>
-          <% attributes_names.each do |attr_name| %>
+          <% eval("#{class_name}.attribute_names").each do |attr_name| %>
             <th><%= attr_name.upcase_first %></th>
           <% end %>
         </tr>
@@ -15,8 +15,8 @@
       <tbody>
         <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
         <tr>
-          <% attributes_names.each do |attr_name| %>
-            <td><%%= singular_table_name.try(attr_name) %></td>
+          <% eval("#{class_name}.attribute_names").each do |attr_name| %>
+            <td><%%= <%= singular_table_name %>.<%= attr_name %> %></td>
           <% end %>
 
           <td><%%= link_to '编辑', edit_admin_<%= singular_table_name %>_path(<%= singular_table_name %>, page: params[:page], q: params[:q]) %></td>

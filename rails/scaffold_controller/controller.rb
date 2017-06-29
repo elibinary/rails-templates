@@ -2,6 +2,8 @@
 require_dependency "<%= namespaced_path %>/application_controller"
 <% end -%>
 
+# <%= eval("#{class_name}.attribute_names") %>
+
 <% module_namespacing do -%>
 class <%= controller_class_name %>Controller < ApplicationController
   before_action :set_<%= singular_table_name %>, only: [:show, :edit, :update, :destroy]
