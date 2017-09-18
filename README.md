@@ -20,4 +20,5 @@ rails g scaffold_controller admin/users_info --model-name=user
 or skip jbuilder
 ```
 rails g scaffold_controller admin/users_info --model-name=user --jbuilder=false
+rails g scaffold_controller admin/users_info --model-name=user --template-engine=erb --no-jbuilder
 ```
